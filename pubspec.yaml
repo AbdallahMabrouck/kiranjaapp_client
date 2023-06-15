@@ -22,6 +22,10 @@ dependencies:
   country_picker: ^2.0.20
   pinput: ^2.2.31
   image_picker: ^0.8.9
+  google_nav_bar: ^5.0.6
+  dots_indicator: ^2.1.1
+  getwidget: ^3.1.1
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:
@@ -40,6 +44,7 @@ flutter:
     - assets/images/image1.png
     - assets/images/image11.png
     - assets/images/image22.png
+    - assets/images/banner.jpg
  
 
   
