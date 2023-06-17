@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../widgets/banner_widget.dart';
+import '../widgets/brand_highlights_widget.dart';
 import '../widgets/search_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,21 +20,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade300,
 
         // ========== App bar starts here ======================
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.white70,
             elevation: 0.0,
             centerTitle: false,
-            title: Text(
+            title: const Text(
               "Kiranja",
               style: TextStyle(
                   letterSpacing: 2,
-                  color: Colors.blue.shade900,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 30),
             ),
@@ -63,17 +63,19 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10,
             ),
             BannerWidget(),
-            // BrandHighlights(),
+            BrandHighlights(),
             // CategoryWidget(),
           ],
         ),
+
         bottomNavigationBar: SafeArea(
           child: Container(
+            height: 60,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
               child: GNav(
                 color: Colors.black,
                 activeColor: Colors.blue.shade900,

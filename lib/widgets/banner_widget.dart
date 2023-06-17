@@ -1,6 +1,5 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:getwidget/components/shimmer/gf_shimmer.dart';
 
 class BannerWidget extends StatefulWidget {
   const BannerWidget({super.key});
