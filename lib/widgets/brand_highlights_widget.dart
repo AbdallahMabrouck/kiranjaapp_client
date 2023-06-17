@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import '../firebase_services.dart';
 import 'banner_widget.dart';
 
 class BrandHighlights extends StatefulWidget {
@@ -15,16 +17,16 @@ class BrandHighlights extends StatefulWidget {
 class _BrandHighlightsState extends State<BrandHighlights> {
   double _scrollPosition = 0;
 
-  // final FirebaseService _service = FirebaseService();
+  final FirebaseService _service = FirebaseService();
   final List _brandAds = [];
 
   @override
   void initState() {
-    // getBrandAd();
+    getBrandAd();
     super.initState();
   }
 
-  /*getBrandAd() {
+  getBrandAd() {
     return _service.brandAd.get().then((QuerySnapshot querySnapshot) {
       // ignore: avoid_function_literals_in_foreach_calls
       querySnapshot.docs.forEach((doc) {
@@ -33,7 +35,7 @@ class _BrandHighlightsState extends State<BrandHighlights> {
         });
       });
     });
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,7 @@ class _BrandHighlightsState extends State<BrandHighlights> {
                                   controller: YoutubePlayerController(
                                     initialVideoId: _brandAds[index]["youtube"],
                                     flags: const YoutubePlayerFlags(
-                                      autoPlay: false,
+                                      autoPlay: true,
                                       mute: true,
                                       loop: true,
                                     ),
