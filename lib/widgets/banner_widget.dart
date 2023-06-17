@@ -1,5 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:getwidget/components/shimmer/gf_shimmer.dart';
+
+import '../firebase_services.dart';
 
 class BannerWidget extends StatefulWidget {
   const BannerWidget({super.key});
@@ -10,12 +15,24 @@ class BannerWidget extends StatefulWidget {
 
 class _BannerWidgetState extends State<BannerWidget> {
   double scrollPosition = 0;
-
+  final FirebaseService _service = FirebaseService();
   final List _bannerImage = [];
 
   @override
   void initState() {
+    getBanners();
     super.initState();
+  }
+
+  getBanners() {
+    return _service.homeBanner.get().then((QuerySnapshot querySnapshot) {
+      // ignore: avoid_function_literals_in_foreach_calls
+      querySnapshot.docs.forEach((doc) {
+        setState(() {
+          _bannerImage.add("image");
+        });
+      });
+    });
   }
 
   @override
@@ -23,43 +40,40 @@ class _BannerWidgetState extends State<BannerWidget> {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(10, 0, 10, 8),
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(4),
             child: Container(
               color: Colors.grey.shade200,
-              height: 150,
+              height: 140,
               width: MediaQuery.of(context).size.width,
-              child: PageView.builder(
-                itemCount: 1,
-                itemBuilder: (BuildContext context, int index) {
-                  return Image.asset(
-                    "assets/images/banner.jpg",
-                    fit: BoxFit.fill,
-                  );
-
-                  /*CachedNetworkImage(
-                    imageUrl: _bannerImage[index],
-                    fit: BoxFit.fill,
-                    placeholder: (context, url) => GFShimmer(
-                      showShimmerEffect: true,
-                      mainColor: Colors.grey.shade500,
-                      secondaryColor: Colors.grey.shade300,
-                      child: Container(
-                        color: Colors.grey.shade300,
-                        height: 140,
-                        width: MediaQuery.of(context).size.width,
+              child: GFShimmer(
+                child: PageView.builder(
+                  itemCount: _bannerImage.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CachedNetworkImage(
+                      imageUrl: _bannerImage[index],
+                      fit: BoxFit.fill,
+                      placeholder: (context, url) => GFShimmer(
+                        showShimmerEffect: true,
+                        mainColor: Colors.grey.shade500,
+                        secondaryColor: Colors.grey.shade300,
+                        child: Container(
+                          color: Colors.grey.shade300,
+                          height: 140,
+                          width: MediaQuery.of(context).size.width,
+                        ),
                       ),
-                    ),
-                  );*/
-                },
-                onPageChanged: (val) {
-                  setState(
-                    () {
-                      scrollPosition = val.toDouble();
-                    },
-                  );
-                },
+                    );
+                  },
+                  onPageChanged: (val) {
+                    setState(
+                      () {
+                        scrollPosition = val.toDouble();
+                      },
+                    );
+                  },
+                ),
               ),
             ),
           ),

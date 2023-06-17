@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1093489568508",
+    "firebase_url": "https://kiranjaapp-client-f032c-default-rtdb.firebaseio.com",
+    "project_id": "kiranjaapp-client-f032c",
+    "storage_bucket": "kiranjaapp-client-f032c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093489568508:android:9f45b0443a4de5ea49c579",
+        "android_client_info": {
+          "package_name": "com.example.kiranjaapp_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093489568508-eg5e7f01ogs1laaqomn52fsqpcvj2r8a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kiranjaapp_client",
+            "certificate_hash": "12328cc4ed9957e8ec9668878b0b0f0c8a84d523"
+          }
+        },
+        {
+          "client_id": "1093489568508-r9t4cn0mcpvvmf1m681b1vrkj1p9v5ld.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADL0bihbFLoJ1KM4bjKGZWXe2Z1N1p8wQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093489568508-r9t4cn0mcpvvmf1m681b1vrkj1p9v5ld.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1093489568508-4p60n24g2r2t9u5t2lceshrraqb3g7cs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kiranjaappAdmin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

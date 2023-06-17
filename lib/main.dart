@@ -1,4 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:kiranjaapp_client/firebase_options.dart';
 import 'package:kiranjaapp_client/screens/home_screen.dart';
 import 'package:kiranjaapp_client/screens/otp_screen.dart';
 import 'package:kiranjaapp_client/screens/splash_screen.dart';
@@ -7,7 +10,10 @@ import 'package:kiranjaapp_client/screens/welcome_screen.dart';
 
 import 'screens/register_screen.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
