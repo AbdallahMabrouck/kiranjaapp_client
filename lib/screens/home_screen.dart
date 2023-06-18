@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-
+import 'package:kiranjaapp_client/widgets/bottom_navigation_widget.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/brand_highlights_widget.dart';
+import '../widgets/category/category_widget.dart';
 import '../widgets/search_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,8 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -64,57 +62,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             BannerWidget(),
             BrandHighlights(),
-            // CategoryWidget(),
+            CategoryWidget(),
           ],
         ),
-
-        bottomNavigationBar: SafeArea(
-          child: Container(
-            height: 60,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
-              child: GNav(
-                color: Colors.black,
-                activeColor: Colors.blue.shade900,
-                tabBackgroundColor: Colors.white,
-                padding: const EdgeInsets.all(16),
-                duration: const Duration(milliseconds: 50),
-                iconSize: 28,
-                hoverColor: Colors.white,
-                rippleColor: Colors.white,
-                textSize: 45.0,
-                gap: 8,
-                tabs: const [
-                  GButton(
-                    icon: Icons.home,
-                    text: "Home",
-                  ),
-                  GButton(
-                    icon: Icons.dashboard_rounded,
-                    text: "Categories",
-                  ),
-                  GButton(
-                    icon: Icons.explore_rounded,
-                    text: "Explore",
-                  ),
-                  GButton(
-                    icon: Icons.account_circle_rounded,
-                    text: "Account",
-                  ),
-                ],
-                selectedIndex: _selectedIndex,
-                onTabChange: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
-              ),
-            ),
-          ),
-        ),
+        bottomNavigationBar: const BottomNavigationWidget(),
       ),
     );
   }
