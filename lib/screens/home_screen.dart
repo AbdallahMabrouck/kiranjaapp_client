@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kiranjaapp_client/widgets/bottom_navigation_widget.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/brand_highlights_widget.dart';
 import '../widgets/category/category_widget.dart';
@@ -7,7 +6,6 @@ import '../widgets/search_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required int index});
-  static const String id = "home-screen";
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -19,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade300,
+        resizeToAvoidBottomInset: false,
 
         // ========== App bar starts here ======================
         appBar: PreferredSize(
@@ -65,7 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
             CategoryWidget(),
           ],
         ),
-        bottomNavigationBar: const BottomNavigationWidget(),
       ),
     );
   }

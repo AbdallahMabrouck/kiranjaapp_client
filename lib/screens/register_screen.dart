@@ -2,6 +2,8 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/screens/otp_screen.dart';
 
+import '../widgets/custom_button.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -144,17 +146,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       SizedBox(
                         width: double.infinity,
                         height: 50,
-                        child: ElevatedButton(
+                        child: CustomButton(
+                          text: "Login",
                           onPressed: () {
                             Navigator.pushNamed(context, OtpScreen.id);
                           },
-                          child: const Text(
-                            "Login",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
                         ),
                       ),
                     ],

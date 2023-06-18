@@ -48,6 +48,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       body: Row(
         children: [
           FirestoreListView<Category>(
+            shrinkWrap: true,
             query: categoryCollection,
             itemBuilder: (context, snapshot) {
               Category category = snapshot.data();

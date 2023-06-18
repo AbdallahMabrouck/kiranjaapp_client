@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:kiranjaapp_client/screens/home_screen.dart';
 import '../utils/utils.dart';
 import '../widgets/custom_button.dart';
+import 'main_screen.dart';
 
 class UserInfromationScreen extends StatefulWidget {
   const UserInfromationScreen({super.key});
@@ -104,7 +104,7 @@ class _UserInfromationScreenState extends State<UserInfromationScreen> {
                   child: CustomButton(
                     text: "Continue",
                     onPressed: () {
-                      Navigator.pushNamed(context, HomeScreen.id);
+                      Navigator.pushNamed(context, MainScreen.id);
                     },
                   ),
                 )

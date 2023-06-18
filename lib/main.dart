@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:kiranjaapp_client/firebase_options.dart';
-import 'package:kiranjaapp_client/screens/home_screen.dart';
+import 'package:kiranjaapp_client/screens/main_screen.dart';
 import 'package:kiranjaapp_client/screens/otp_screen.dart';
 import 'package:kiranjaapp_client/screens/splash_screen.dart';
 import 'package:kiranjaapp_client/screens/user_information_screen.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         RegisterScreen.id: (context) => const RegisterScreen(),
         OtpScreen.id: (context) => const OtpScreen(),
         UserInfromationScreen.id: (context) => const UserInfromationScreen(),
-        HomeScreen.id: (context) => const HomeScreen(index: 0),
+        MainScreen.id: (context) => const MainScreen(index: 0)
       },
     );
   }

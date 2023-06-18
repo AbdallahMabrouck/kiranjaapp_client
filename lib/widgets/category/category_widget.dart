@@ -20,7 +20,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
       color: Colors.white,
       child: Column(
         children: [
-          const SizedBox(height: 18),
+          const SizedBox(height: 3),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -52,6 +52,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                   Expanded(
                     child: FirestoreListView<Category>(
                       scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
                       query: categoryCollection,
                       itemBuilder: (context, snapshot) {
                         Category category = snapshot.data();

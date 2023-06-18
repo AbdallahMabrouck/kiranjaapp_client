@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:kiranjaapp_client/screens/home_screen.dart';
 import 'package:kiranjaapp_client/screens/welcome_screen.dart';
+
+import 'main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       boarding == null
           ? Navigator.pushReplacementNamed(context, WelcomeScreen.id)
           : boarding == true
-              ? Navigator.pushReplacementNamed(context, HomeScreen.id)
+              ? Navigator.pushReplacementNamed(context, MainScreen.id)
               : Navigator.pushReplacementNamed(context, WelcomeScreen.id);
       Navigator.pushNamed(context, WelcomeScreen.id);
     });
