@@ -24,7 +24,7 @@ class _BannerWidgetState extends State<BannerWidget> {
     super.initState();
   }
 
-  getBanners() {
+  /*getBanners() {
     return _service.homeBanner.get().then((QuerySnapshot querySnapshot) {
       // ignore: avoid_function_literals_in_foreach_calls
       querySnapshot.docs.forEach((doc) {
@@ -33,6 +33,18 @@ class _BannerWidgetState extends State<BannerWidget> {
         });
       });
     });
+  }*/
+
+  Future<void> getBanners() async {
+    QuerySnapshot<Object?> querySnapshot = await _service.homeBanner.get();
+    for (var doc in querySnapshot.docs) {
+      String? image = doc.get("image") as String?;
+      if (image != null) {
+        setState(() {
+          _bannerImage.add(image);
+        });
+      }
+    }
   }
 
   @override
