@@ -5,7 +5,7 @@ import '../../models/sub_category_model.dart';
 
 class SubCategoryWidget extends StatelessWidget {
   final String? selectedSubCat;
-  const SubCategoryWidget({super.key, required this.selectedSubCat});
+  const SubCategoryWidget({super.key, this.selectedSubCat});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class SubCategoryWidget extends StatelessWidget {
         return GridView.builder(
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 3,
                 childAspectRatio: snapshot.docs.isEmpty ? 1 / .1 : 1 / 1.1),
             itemCount: snapshot.docs.length,
             itemBuilder: (context, index) {

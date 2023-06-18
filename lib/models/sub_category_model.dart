@@ -1,7 +1,7 @@
 import '../firebase_services.dart';
 
 class SubCategory {
-  SubCategory({this.mainCategory, this.subCatName, required this.image});
+  SubCategory({this.mainCategory, this.subCatName, this.image});
 
   SubCategory.fromJson(Map<String, Object?> json)
       : this(
@@ -30,6 +30,6 @@ subCategoryCollection({selectedSubCat}) {
       .where("subCatNmae", isEqualTo: selectedSubCat)
       .withConverter<SubCategory>(
         fromFirestore: (snapshot, _) => SubCategory.fromJson(snapshot.data()!),
-        toFirestore: (movie, _) => movie.toJson(),
+        toFirestore: (subCat, _) => subCat.toJson(),
       );
 }

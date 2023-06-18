@@ -45,11 +45,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Row(
-          children: [
-            FirestoreListView<Category>(
+      body: Row(
+        children: [
+          Container(
+            width: 80,
+            color: Colors.grey.shade300,
+            child: FirestoreListView<Category>(
               shrinkWrap: true,
               query: categoryCollection,
               itemBuilder: (context, snapshot) {
@@ -97,11 +98,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 );
               },
             ),
-            MainCategoryWidget(
-              selectedCat: selectedCategory,
-            ),
-          ],
-        ),
+          ),
+          MainCategoryWidget(
+            selectedCat: selectedCategory,
+          ),
+        ],
       ),
     );
   }

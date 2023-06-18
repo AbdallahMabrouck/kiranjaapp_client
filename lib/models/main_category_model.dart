@@ -22,7 +22,7 @@ class MainCategory {
 
 FirebaseService _service = FirebaseService();
 mainCategoryCollection(selectedCat) {
-  _service.mainCategories
+  return _service.mainCategories
       .where("approved", isEqualTo: true)
       .where("category", isEqualTo: selectedCat)
       .withConverter<MainCategory>(

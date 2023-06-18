@@ -1,7 +1,7 @@
 import '../firebase_services.dart';
 
 class Category {
-  Category({required this.catName, required this.image});
+  Category({this.catName, this.image});
 
   Category.fromJson(Map<String, Object?> json)
       : this(

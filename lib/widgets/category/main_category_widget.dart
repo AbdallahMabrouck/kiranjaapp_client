@@ -6,7 +6,7 @@ import '../../models/main_category_model.dart';
 
 class MainCategoryWidget extends StatefulWidget {
   final String? selectedCat;
-  const MainCategoryWidget({super.key, required this.selectedCat});
+  const MainCategoryWidget({super.key, this.selectedCat});
 
   @override
   State<MainCategoryWidget> createState() => _MainCategoryWidgetState();
@@ -17,6 +17,7 @@ class _MainCategoryWidgetState extends State<MainCategoryWidget> {
   Widget build(BuildContext context) {
     return Expanded(
       child: FirestoreListView<MainCategory>(
+        shrinkWrap: true,
         query: mainCategoryCollection(widget.selectedCat),
         itemBuilder: (context, snapshot) {
           MainCategory mainCategory = snapshot.data();
