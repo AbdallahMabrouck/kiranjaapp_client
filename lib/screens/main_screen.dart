@@ -81,7 +81,7 @@ class _MainScreenState extends State<MainScreen> {
         unselectedItemColor: Colors.black87,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
-        selectedFontSize: 12,
+        selectedFontSize: 13,
         selectedLabelStyle: optionStyle,
         unselectedLabelStyle: optionStyle,
       ),

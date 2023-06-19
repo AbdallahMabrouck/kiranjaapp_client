@@ -1,7 +1,7 @@
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../models/category_model.dart';
-import '../../screens/home_screen.dart';
+import '../../screens/main_screen.dart';
 import '../home_product_list.dart';
 
 class CategoryWidget extends StatefulWidget {
@@ -70,7 +70,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                             label: Text(
                               category.catName!,
                               style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
                                   color: _selectedCategory == category.catName
                                       ? Colors.white
                                       : Colors.black),
@@ -97,7 +98,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (BuildContext context) => const HomeScreen(
+                            builder: (BuildContext context) => const MainScreen(
                               index: 1,
                             ),
                           ),
