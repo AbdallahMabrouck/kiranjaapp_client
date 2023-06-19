@@ -51,39 +51,44 @@ class _MainScreenState extends State<MainScreen> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 4,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: Colors.grey.shade300))),
+        child: BottomNavigationBar(
+          elevation: 4,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
+              ),
+              label: 'Home',
             ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 1 ? Icons.dashboard : Icons.dashboard),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 2 ? Icons.search : Icons.search),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 3
-                ? CupertinoIcons.person_solid
-                : CupertinoIcons.person),
-            label: 'Account',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue.shade800,
-        showUnselectedLabels: true,
-        unselectedItemColor: Colors.black87,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
-        selectedFontSize: 13,
-        selectedLabelStyle: optionStyle,
-        unselectedLabelStyle: optionStyle,
+            BottomNavigationBarItem(
+              icon:
+                  Icon(_selectedIndex == 1 ? Icons.dashboard : Icons.dashboard),
+              label: 'Categories',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(_selectedIndex == 2 ? Icons.search : Icons.search),
+              label: 'Explore',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(_selectedIndex == 3
+                  ? CupertinoIcons.person_solid
+                  : CupertinoIcons.person),
+              label: 'Account',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blue.shade800,
+          showUnselectedLabels: true,
+          unselectedItemColor: Colors.black87,
+          onTap: _onItemTapped,
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 13,
+          selectedLabelStyle: optionStyle,
+          unselectedLabelStyle: optionStyle,
+        ),
       ),
     );
   }
