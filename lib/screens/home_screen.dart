@@ -20,37 +20,60 @@ class _HomeScreenState extends State<HomeScreen> {
         resizeToAvoidBottomInset: false,
 
         // ========== App bar starts here ======================
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60),
-          child: AppBar(
-            automaticallyImplyLeading: false,
-            elevation: 0.0,
-            centerTitle: false,
-            title: const Text(
-              "Kiranja",
-              style: TextStyle(
-                  letterSpacing: 2,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30),
-            ),
-            actions: [
-              IconButton(
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          automaticallyImplyLeading: false,
+          elevation: 0.0,
+          centerTitle: false,
+          title: const Text(
+            "Kiranja",
+            style: TextStyle(
+                letterSpacing: 2,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 30),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
+              child: IconButton(
                 onPressed: () {},
                 icon: const Icon(
                   Icons.shopping_cart_outlined,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
-              IconButton(
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+              child: IconButton(
                 onPressed: () {},
                 icon: const Icon(
                   Icons.favorite_border_rounded,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
+          bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(56),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: "Search",
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(3),
+                          borderSide: BorderSide.none),
+                      contentPadding: EdgeInsets.zero,
+                      filled: true,
+                      fillColor: Colors.white),
+                ),
+              )),
         ),
 
         body: ListView(

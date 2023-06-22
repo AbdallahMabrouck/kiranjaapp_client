@@ -24,61 +24,63 @@ class SubCategoryWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              GridView.builder(
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      childAspectRatio:
-                          snapshot.docs.isEmpty ? 1 / 0.1 : 1 / 1.1),
-                  itemCount: snapshot.docs.length,
-                  itemBuilder: (context, index) {
-                    SubCategory subCat = snapshot.docs[index].data();
-                    return InkWell(
-                      onTap: () {
-                        // move to products screen
-                      },
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 60,
-                              width: 60,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: CachedNetworkImage(
-                                  imageUrl: subCat.image!,
-                                  placeholder: (context, _) {
-                                    return Container(
-                                      height: 60,
-                                      width: 60,
-                                      color: Colors.grey.shade300,
-                                    );
-                                  },
-                                  errorWidget: (context, url, error) {
-                                    return Container(
-                                      height: 60,
-                                      width: 60,
-                                      color: Colors.red,
-                                      child: const Icon(
-                                        Icons.error,
-                                        color: Colors.white,
-                                      ),
-                                    );
-                                  },
+              Flexible(
+                child: GridView.builder(
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio:
+                            snapshot.docs.isEmpty ? 1 / 0.1 : 1 / 1.1),
+                    itemCount: snapshot.docs.length,
+                    itemBuilder: (context, index) {
+                      SubCategory subCat = snapshot.docs[index].data();
+                      return InkWell(
+                        onTap: () {
+                          // move to products screen
+                        },
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: CachedNetworkImage(
+                                    imageUrl: subCat.image!,
+                                    placeholder: (context, _) {
+                                      return Container(
+                                        height: 60,
+                                        width: 60,
+                                        color: Colors.grey.shade300,
+                                      );
+                                    },
+                                    errorWidget: (context, url, error) {
+                                      return Container(
+                                        height: 60,
+                                        width: 60,
+                                        color: Colors.red,
+                                        child: const Icon(
+                                          Icons.error,
+                                          color: Colors.white,
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              subCat.subCatName!,
-                              style: const TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+                              Text(
+                                subCat.subCatName!,
+                                style: const TextStyle(fontSize: 12),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+              ),
             ],
           ),
         );

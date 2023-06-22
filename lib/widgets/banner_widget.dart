@@ -24,17 +24,6 @@ class _BannerWidgetState extends State<BannerWidget> {
     super.initState();
   }
 
-  /*getBanners() {
-    return _service.homeBanner.get().then((QuerySnapshot querySnapshot) {
-      // ignore: avoid_function_literals_in_foreach_calls
-      querySnapshot.docs.forEach((doc) {
-        setState(() {
-          _bannerImage.add("image");
-        });
-      });
-    });
-  }*/
-
   Future<void> getBanners() async {
     QuerySnapshot<Object?> querySnapshot = await _service.homeBanner.get();
     for (var doc in querySnapshot.docs) {
@@ -57,7 +46,7 @@ class _BannerWidgetState extends State<BannerWidget> {
             borderRadius: BorderRadius.circular(4),
             child: Container(
               color: Colors.grey.shade200,
-              height: 140,
+              height: 200,
               width: MediaQuery.of(context).size.width,
               child: GFShimmer(
                 child: PageView.builder(
