@@ -5,12 +5,11 @@ import '../../models/sub_category_model.dart';
 
 class SubCategoryWidget extends StatelessWidget {
   final String? selectedSubCat;
-  const SubCategoryWidget({super.key, this.selectedSubCat});
+  const SubCategoryWidget({super.key, required this.selectedSubCat});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: FirestoreQueryBuilder<SubCategory>(
+    return FirestoreQueryBuilder<SubCategory>(
       query: subCategoryCollection(selectedSubCat: selectedSubCat),
       builder: (context, snapshot, _) {
         if (snapshot.isFetching) {
@@ -20,71 +19,58 @@ class SubCategoryWidget extends StatelessWidget {
           return Text('error ${snapshot.error}');
         }
 
-        return SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Flexible(
-                child: GridView.builder(
-                    shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio:
-                            snapshot.docs.isEmpty ? 1 / 0.1 : 1 / 1.1),
-                    itemCount: snapshot.docs.length,
-                    itemBuilder: (context, index) {
-                      SubCategory subCat = snapshot.docs[index].data();
-                      return InkWell(
-                        onTap: () {
-                          // move to products screen
-                        },
-                        child: SizedBox(
-                          height: MediaQuery.of(context).size.height,
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 60,
-                                width: 60,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: CachedNetworkImage(
-                                    imageUrl: subCat.image!,
-                                    placeholder: (context, _) {
-                                      return Container(
-                                        height: 60,
-                                        width: 60,
-                                        color: Colors.grey.shade300,
-                                      );
-                                    },
-                                    errorWidget: (context, url, error) {
-                                      return Container(
-                                        height: 60,
-                                        width: 60,
-                                        color: Colors.red,
-                                        child: const Icon(
-                                          Icons.error,
-                                          color: Colors.white,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
+        return GridView.builder(
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: snapshot.docs.isEmpty ? 1 / 0.1 : 1 / 1.1),
+            itemCount: snapshot.docs.length,
+            itemBuilder: (context, index) {
+              final subCat = snapshot.docs[index].data();
+              return InkWell(
+                onTap: () {
+                  // move to products screen
+                },
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: CachedNetworkImage(
+                          imageUrl: subCat.image!,
+                          placeholder: (context, _) {
+                            return Container(
+                              height: 60,
+                              width: 60,
+                              color: Colors.grey.shade300,
+                            );
+                          },
+                          /*errorWidget: (context, url, error) {
+                            return Container(
+                              height: 60,
+                              width: 60,
+                              color: Colors.red,
+                              child: const Icon(
+                                Icons.error,
+                                color: Colors.white,
                               ),
-                              Text(
-                                subCat.subCatName!,
-                                style: const TextStyle(fontSize: 12),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
+                            );
+                          },*/
                         ),
-                      );
-                    }),
-              ),
-            ],
-          ),
-        );
+                      ),
+                    ),
+                    Text(
+                      subCat.subCatName!,
+                      style: const TextStyle(fontSize: 12),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
+            });
       },
-    ));
+    );
   }
 }

@@ -1,7 +1,7 @@
 import '../firebase_services.dart';
 
 class SubCategory {
-  SubCategory({this.mainCategory, this.subCatName, this.image});
+  SubCategory({this.mainCategory, this.subCatName, required this.image});
 
   SubCategory.fromJson(Map<String, Object?> json)
       : this(
