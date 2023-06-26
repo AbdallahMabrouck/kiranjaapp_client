@@ -20,9 +20,9 @@ class _MainCategoryWidgetState extends State<MainCategoryWidget> {
         query: mainCategoryCollection(widget.selectedCat),
         itemBuilder: (context, snapshot) {
           MainCategory mainCategory = snapshot.data();
-          return SizedBox(
-            height: 60,
+          return SingleChildScrollView(
             child: ExpansionTile(
+              childrenPadding: const EdgeInsets.all(8),
               title: Text(mainCategory.mainCategory!),
               children: [
                 SubCategoryWidget(selectedSubCat: mainCategory.mainCategory),
