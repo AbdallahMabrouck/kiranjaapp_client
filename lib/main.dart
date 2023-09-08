@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'kiranja',
-      color: Colors.blue,
+      color: Colors.indigo,
       theme: ThemeData(colorSchemeSeed: Colors.blue),
       initialRoute: SplashScreen.id,
       routes: {
