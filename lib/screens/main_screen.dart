@@ -1,94 +1,102 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'account_screen.dart';
+import 'package:kiranjaapp_client/screens/account_screen.dart';
+import 'package:kiranjaapp_client/screens/cart_screen.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import '../widgets/cart/cart_notification.dart';
 import 'categories_screen.dart';
-import 'explore_screen.dart';
 import 'home_screen.dart';
+import 'order_screen.dart';
 
-class MainScreen extends StatefulWidget {
-  final int? index;
-  const MainScreen({super.key, required this.index});
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key, required int index});
+
   static const String id = "main-screen";
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
-
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 13, fontWeight: FontWeight.bold);
-
-  static const List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(
-      index: 0,
-    ),
-    CategoriesScreen(),
-    ExploreScreen(),
-    AccountScreen(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  void initState() {
-    if (widget.index != null) {
-      setState(() {
-        _selectedIndex = widget.index!;
-      });
-    }
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: Colors.grey.shade300))),
-        child: BottomNavigationBar(
-          elevation: 4,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon:
-                  Icon(_selectedIndex == 1 ? Icons.dashboard : Icons.dashboard),
-              label: 'Categories',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(_selectedIndex == 2 ? Icons.search : Icons.search),
-              label: 'Explore',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(_selectedIndex == 3
-                  ? CupertinoIcons.person_solid
-                  : CupertinoIcons.person),
-              label: 'Account',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue.shade800,
-          showUnselectedLabels: true,
-          unselectedItemColor: Colors.black87,
-          onTap: _onItemTapped,
-          type: BottomNavigationBarType.fixed,
-          selectedFontSize: 13,
-          selectedLabelStyle: optionStyle,
-          unselectedLabelStyle: optionStyle,
+    PersistentTabController _controller;
+    _controller = PersistentTabController(initialIndex: 0);
+
+    List<Widget> _buildScreens() {
+      return [
+        const HomeScreen(
+          index: 0,
         ),
+        const CategoriesScreen(),
+        const OrdersScreen(),
+        const CartScreen(),
+        const AccountScreen(),
+      ];
+    }
+
+    List<PersistentBottomNavBarItem> _navBarsItems() {
+      return [
+        PersistentBottomNavBarItem(
+            icon: Image.asset("assets/images/kiranja-logo.png"),
+            title: "Home",
+            activeColorPrimary: Theme.of(context).primaryColor,
+            inactiveColorPrimary: Colors.grey,
+            inactiveColorSecondary: Colors.purple),
+        PersistentBottomNavBarItem(
+            icon: const Icon(Icons.dashboard_outlined),
+            title: "Categories",
+            activeColorPrimary: Theme.of(context).primaryColor,
+            inactiveColorPrimary: Colors.grey,
+            inactiveColorSecondary: Colors.purple),
+        PersistentBottomNavBarItem(
+            icon: const Icon(CupertinoIcons.shopping_cart),
+            title: "Cart",
+            activeColorPrimary: Theme.of(context).primaryColor,
+            inactiveColorPrimary: Colors.grey,
+            inactiveColorSecondary: Colors.purple),
+        PersistentBottomNavBarItem(
+            icon: const Icon(CupertinoIcons.bag_fill),
+            title: "My Orders",
+            activeColorPrimary: Theme.of(context).primaryColor,
+            inactiveColorPrimary: Colors.grey,
+            inactiveColorSecondary: Colors.purple),
+        PersistentBottomNavBarItem(
+            icon: const Icon(CupertinoIcons.profile_circled),
+            title: "Account",
+            activeColorPrimary: Theme.of(context).primaryColor,
+            inactiveColorPrimary: Colors.grey,
+            inactiveColorSecondary: Colors.purple),
+      ];
+    }
+
+    return Scaffold(
+      floatingActionButton: const Padding(
+        padding: EdgeInsets.only(bottom: 56),
+        child: CartNotification(),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: PersistentTabView(
+        context,
+        navBarHeight: 56,
+        controller: _controller,
+        screens: _buildScreens(),
+        items: _navBarsItems(),
+        confineInSafeArea: true,
+        resizeToAvoidBottomInset: true,
+        handleAndroidBackButtonPress: true,
+        stateManagement: true,
+        hideNavigationBarWhenKeyboardShows: true,
+        decoration: NavBarDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.circular(0.0),
+            colorBehindNavBar: Colors.indigo),
+        popAllScreensOnTapOfSelectedTab: true,
+        popActionScreens: PopActionScreensType.all,
+        itemAnimationProperties: const ItemAnimationProperties(
+          duration: Duration(milliseconds: 200),
+          curve: Curves.ease,
+        ),
+        screenTransitionAnimation: const ScreenTransitionAnimation(
+            animateTabTransition: true,
+            curve: Curves.ease,
+            duration: Duration(milliseconds: 200)),
+        navBarStyle: NavBarStyle.style13,
       ),
     );
   }
