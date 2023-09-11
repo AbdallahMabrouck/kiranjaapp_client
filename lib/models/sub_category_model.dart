@@ -1,4 +1,4 @@
-import '../firebase_services.dart';
+import '../services/firebase_services.dart';
 
 class SubCategory {
   SubCategory({this.mainCategory, this.subCatName, required this.image});
