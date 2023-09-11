@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/screens/account_screen.dart';
 import 'package:kiranjaapp_client/screens/cart_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:provider/provider.dart';
-import '../providers/cart_provider.dart';
 import '../widgets/cart/cart_notification.dart';
 import 'categories_screen.dart';
 import 'home_screen.dart';
@@ -18,7 +15,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _cartProvider = Provider.of<CartProvider>(context);
     PersistentTabController _controller;
     _controller = PersistentTabController(initialIndex: 0);
 
@@ -29,9 +25,7 @@ class MainScreen extends StatelessWidget {
         ),
         const CategoriesScreen(),
         const OrdersScreen(),
-        CartScreen(
-          document: _cartProvider.document as DocumentSnapshot<Object?>,
-        ),
+        const CartScreen(),
         const AccountScreen(),
       ];
     }

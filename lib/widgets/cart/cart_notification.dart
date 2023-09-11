@@ -76,8 +76,7 @@ class _CartNotificationState extends State<CartNotification> {
                       context,
                       settings: const RouteSettings(name: CartScreen.id),
                       screen: CartScreen(
-                        document: _cartProvider.document
-                            as DocumentSnapshot<Object?>, // Explicitly cast
+                        document: _cartProvider.document!,
                       ),
                       withNavBar: false,
                       pageTransitionAnimation:
