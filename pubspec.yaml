@@ -45,6 +45,7 @@ dependencies:
   geocoding: ^2.1.0
   permission_handler: ^10.4.5
   firebase_storage: ^11.2.6
+  shared_preferences: ^2.2.1
 
 dev_dependencies:
   flutter_test:
