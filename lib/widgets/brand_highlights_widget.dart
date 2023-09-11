@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../firebase_services.dart';
+import '../services/firebase_services.dart';
 import 'banner_widget.dart';
 
 class BrandHighlights extends StatefulWidget {
