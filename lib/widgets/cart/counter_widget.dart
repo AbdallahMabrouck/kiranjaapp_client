@@ -1,14 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/services/cart_services.dart';
-
-import '../products/add_to_cart_widget.dart';
+import 'package:kiranjaapp_client/widgets/products/add_to_cart_widget.dart';
 
 class CounterWidget extends StatefulWidget {
   final DocumentSnapshot document;
   final String docId;
   final int qty;
-
   const CounterWidget({
     Key? key,
     required this.document,
@@ -34,6 +32,9 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> documentData =
+        widget.document.data() as Map<String, dynamic>;
+
     return _exists
         ? Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -63,8 +64,7 @@ class _CounterWidgetState extends State<CounterWidget> {
                             setState(() {
                               _qty--;
                             });
-                            var total =
-                                _qty * (widget.document["price"] as double);
+                            var total = _qty * documentData["price"];
                             _cart
                                 .updateCartQty(widget.docId, _qty, total)
                                 .then((value) {
@@ -112,8 +112,7 @@ class _CounterWidgetState extends State<CounterWidget> {
                             _updating = true;
                             _qty++;
                           });
-                          var total =
-                              _qty * (widget.document["price"] as double);
+                          var total = _qty * documentData["price"];
                           _cart
                               .updateCartQty(widget.docId, _qty, total)
                               .then((value) {
