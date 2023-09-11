@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
@@ -75,9 +74,7 @@ class _CartNotificationState extends State<CartNotification> {
                     PersistentNavBarNavigator.pushNewScreenWithRouteSettings(
                       context,
                       settings: const RouteSettings(name: CartScreen.id),
-                      screen: CartScreen(
-                        document: _cartProvider.document!,
-                      ),
+                      screen: const CartScreen(),
                       withNavBar: false,
                       pageTransitionAnimation:
                           PageTransitionAnimation.cupertino,
