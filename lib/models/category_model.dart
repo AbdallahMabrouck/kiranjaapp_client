@@ -1,4 +1,4 @@
-import '../firebase_services.dart';
+import '../services/firebase_services.dart';
 
 class Category {
   Category({required this.catName, required this.image});
