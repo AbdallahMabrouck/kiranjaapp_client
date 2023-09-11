@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../screens/main_screen.dart';
@@ -18,6 +19,7 @@ class AuthProvider with ChangeNotifier {
   double longitude = 0.0;
   String address = "";
   String location = "";
+  DocumentSnapshot? snapshot;
 
   Future<void> verifyPhone(
       {required BuildContext context, required String? number}) async {
@@ -175,6 +177,22 @@ class AuthProvider with ChangeNotifier {
     } catch (e) {
       print("Error $e");
       return false;
+    }
+  }
+
+  Future<void> getuserDetails() async {
+    try {
+      DocumentSnapshot result = await FirebaseFirestore.instance
+          .collection("users")
+          .doc(_auth.currentUser!.uid)
+          .get();
+
+      snapshot = result;
+      notifyListeners();
+    } catch (e) {
+      print("Error fetching user details: $e");
+      snapshot = null;
+      notifyListeners();
     }
   }
 }
