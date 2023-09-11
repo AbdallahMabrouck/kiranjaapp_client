@@ -49,6 +49,9 @@ dependencies:
   shared_preferences: ^2.2.1
   carousel_slider: ^4.2.1
   map_launcher: ^2.5.0+1
+  search_page: ^2.3.0
+  dotted_border: ^2.0.0+3
+  chips_choice: ^3.0.0
 
 dev_dependencies:
   flutter_test:
