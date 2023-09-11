@@ -1,4 +1,4 @@
-import '../firebase_services.dart';
+import '../services/firebase_services.dart';
 
 class MainCategory {
   MainCategory({required this.category, required this.mainCategory});
