@@ -121,8 +121,6 @@ class _CartScreenState extends State<CartScreen> {
                                       _loading = false;
                                     });
                                     if (value != null) {
-                                      / Navigate to the MapScreen
-  navigateToMapScreen(context);
                                       PersistentNavBarNavigator
                                           .pushNewScreenWithRouteSettings(
                                         context,
@@ -445,7 +443,7 @@ class _CartScreenState extends State<CartScreen> {
       "total": payable,
       "discount": discount.toStringAsFixed(0),
       "cod": cartProvider.cod,
-      "discountCode": coupon.document == null ? null : coupon.document["title"],
+      "discountCode": coupon.document["title"],
       "seller": {
         "shopName": widget.document["shopName"],
         "sellerd": widget.document["selerUid"],
