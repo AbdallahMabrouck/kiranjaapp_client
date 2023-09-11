@@ -129,14 +129,14 @@ class _CouponWidgetState extends State<CouponWidget> {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 4),
                                     child:
-                                        Text(_coupon.document["title"] ?? ""),
+                                        Text(_coupon.document!["title"] ?? ""),
                                   ),
                                   Divider(
                                     color: Colors.grey.shade800,
                                   ),
-                                  Text(_coupon.document["details"] ?? ""),
+                                  Text(_coupon.document!["details"] ?? ""),
                                   Text(
-                                      "${_coupon.document["discountRate"]}% discount on Total purchase"),
+                                      "${_coupon.document!["discountRate"]}% discount on Total purchase"),
                                   const SizedBox(
                                     height: 10,
                                   )

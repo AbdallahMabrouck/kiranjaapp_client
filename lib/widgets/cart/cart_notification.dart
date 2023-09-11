@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class _CartNotificationState extends State<CartNotification> {
 
     final cartQty = _cartProvider.cartQty;
     final subTotal = _cartProvider.subTotal;
-    final shopData = _cartProvider.document.data() as Map<String, dynamic>?;
+    final shopData = _cartProvider.document!.data() as Map<String, dynamic>?;
 
     return Visibility(
       visible: cartQty > 0,
@@ -70,15 +71,19 @@ class _CartNotificationState extends State<CartNotification> {
               ),
               InkWell(
                 onTap: () {
-                  PersistentNavBarNavigator.pushNewScreenWithRouteSettings(
-                    context,
-                    settings: const RouteSettings(name: CartScreen.id),
-                    screen: CartScreen(
-                      document: _cartProvider.document,
-                    ),
-                    withNavBar: false,
-                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
-                  );
+                  if (_cartProvider.document != null) {
+                    PersistentNavBarNavigator.pushNewScreenWithRouteSettings(
+                      context,
+                      settings: const RouteSettings(name: CartScreen.id),
+                      screen: CartScreen(
+                        document: _cartProvider.document
+                            as DocumentSnapshot<Object?>, // Explicitly cast
+                      ),
+                      withNavBar: false,
+                      pageTransitionAnimation:
+                          PageTransitionAnimation.cupertino,
+                    );
+                  }
                 },
                 child: Container(
                   child: const Row(

@@ -29,10 +29,10 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  StoreServices _store = StoreServices();
-  UserServices _userServices = UserServices();
-  OrderServices _orderServices = OrderServices();
-  CartServices _cartServices = CartServices();
+  final StoreServices _store = StoreServices();
+  final UserServices _userServices = UserServices();
+  final OrderServices _orderServices = OrderServices();
+  final CartServices _cartServices = CartServices();
   User? user = FirebaseAuth.instance.currentUser;
   DocumentSnapshot? doc;
   var textStyle = const TextStyle(color: Colors.grey);
@@ -40,7 +40,7 @@ class _CartScreenState extends State<CartScreen> {
   String _location = "";
   String _address = "";
   bool _loading = false;
-  bool _checkingUser = false;
+  final bool _checkingUser = false;
   int deliveryFee = 1000;
 
   @override
@@ -443,7 +443,7 @@ class _CartScreenState extends State<CartScreen> {
       "total": payable,
       "discount": discount.toStringAsFixed(0),
       "cod": cartProvider.cod,
-      "discountCode": coupon.document["title"],
+      "discountCode": coupon.document!["title"],
       "seller": {
         "shopName": widget.document["shopName"],
         "sellerd": widget.document["selerUid"],
