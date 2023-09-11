@@ -21,8 +21,10 @@ import 'google_map_screen.dart';
 
 class CartScreen extends StatefulWidget {
   static const String id = "cart-screen";
-  final DocumentSnapshot document;
-  const CartScreen({super.key, required this.document});
+
+  const CartScreen({
+    super.key,
+  });
 
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -34,6 +36,7 @@ class _CartScreenState extends State<CartScreen> {
   final OrderServices _orderServices = OrderServices();
   final CartServices _cartServices = CartServices();
   User? user = FirebaseAuth.instance.currentUser;
+  late DocumentSnapshot document;
   DocumentSnapshot? doc;
   var textStyle = const TextStyle(color: Colors.grey);
   double discount = 0;
@@ -46,7 +49,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     getPrefs();
-    _store.getShopDetails(widget.document["sellerUid"]).then((value) {
+    _store.getShopDetails(document["sellerUid"]).then((value) {
       setState(() {
         doc = value;
       });
@@ -236,7 +239,7 @@ class _CartScreenState extends State<CartScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.document["shopName"],
+                      document["shopName"],
                       style: const TextStyle(fontSize: 16),
                     ),
                     Row(
@@ -296,7 +299,7 @@ class _CartScreenState extends State<CartScreen> {
                                 ],
                               ),
                             ),
-                            CartList(document: widget.document),
+                            CartList(document: document),
 
                             //  coupon
                             const CouponWidget(
@@ -445,8 +448,8 @@ class _CartScreenState extends State<CartScreen> {
       "cod": cartProvider.cod,
       "discountCode": coupon.document!["title"],
       "seller": {
-        "shopName": widget.document["shopName"],
-        "sellerd": widget.document["selerUid"],
+        "shopName": document["shopName"],
+        "sellerd": document["selerUid"],
       },
       "timestamp": DateTime.now().toString(),
       "orderStatus": "ordered",
