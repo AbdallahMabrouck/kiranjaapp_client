@@ -1,4 +1,59 @@
 import 'package:flutter/material.dart';
+import '../widgets/image_slider.dart';
+import '../widgets/my_appbar.dart';
+import '../widgets/products/top_pick_store.dart';
+
+class HomeScreen extends StatefulWidget {
+  static const String id = "home-screen";
+  const HomeScreen({super.key, required int index});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    // final auth = Provider.of<AuthProvider>(context);
+
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey.shade200,
+        body: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return [const MyAppBar()];
+          },
+          body: ListView(
+            padding: const EdgeInsets.only(top: 0.0),
+            children: [
+              const ImageSlider(),
+              Container(
+                  color: Colors.white,
+                  height: 200,
+                  child: const TopPickStore()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import 'package:flutter/material.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/brand_highlights_widget.dart';
 import '../widgets/category/category_widget.dart';
@@ -90,4 +145,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
+}*/
