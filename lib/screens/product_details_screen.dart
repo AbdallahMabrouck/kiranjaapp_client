@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../firebase_services.dart';
+import '../services/firebase_services.dart';
 import '../models/product_model.dart';
 import '../widgets/product_bottom_sheet.dart';
 import 'confirmation_screen.dart';
