@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kiranjaapp_client/screens/onboaer_screen.dart';
+import 'package:kiranjaapp_client/screens/onboaard_screen.dart';
 import 'package:kiranjaapp_client/screens/register_screen.dart';
 import 'package:provider/provider.dart';
 
