@@ -11,7 +11,7 @@ class LocationProvider with ChangeNotifier {
   Placemark? selectedAddress;
   bool loading = false;
 
-  Future<void> getCurrentPosition() async {
+  Future<Position?> getCurrentPosition() async {
     try {
       Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high,
@@ -30,8 +30,11 @@ class LocationProvider with ChangeNotifier {
 
       permissionAllowed = true;
       notifyListeners();
+
+      return position; // Return the Position object
     } catch (e) {
       print("Error getting current position: $e");
+      return null; // Return null in case of an error
     }
   }
 
