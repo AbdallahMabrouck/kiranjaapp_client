@@ -19,6 +19,8 @@ class SearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final productData = product.document.data() as Map<String, dynamic>?;
+
     return Container(
       height: 160,
       width: MediaQuery.of(context).size.width,
@@ -53,16 +55,16 @@ class SearchCard extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Hero(
-                          tag:
-                              "product${product.document.data()!["productName"]}",
-                          child: Image.network(
-                              product.document.data()!["productImage"]),
+                          tag: "product${productData?["productName"]}",
+                          child:
+                              Image.network(productData?["productImage"] ?? ""),
                         ),
                       ),
                     ),
                   ),
                 ),
-                if (product.document.data()!["comparedPrice"] > 0)
+                if (productData?["comparedPrice"] != null &&
+                    productData?["comparedPrice"] > 0)
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).primaryColor,
@@ -94,12 +96,12 @@ class SearchCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          product.document.data()!["brand"],
+                          productData?["brand"] ?? "",
                           style: const TextStyle(fontSize: 10),
                         ),
                         const SizedBox(height: 6),
                         Text(
-                          product.document.data()!["productName"],
+                          productData?["productName"] ?? "",
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 6),
@@ -112,7 +114,7 @@ class SearchCard extends StatelessWidget {
                             color: Colors.grey.shade200,
                           ),
                           child: Text(
-                            product.document.data()!["weight"],
+                            productData?["weight"] ?? "",
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
@@ -124,14 +126,15 @@ class SearchCard extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "\$${product.document.data()!["price"].toStringAsFixed(0)}",
+                              "\$${productData?["price"]?.toStringAsFixed(0) ?? '0'}",
                               style:
                                   const TextStyle(fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(width: 10),
-                            if (product.document.data()!["comparedPrice"] > 0)
+                            if (productData?["comparedPrice"] != null &&
+                                productData?["comparedPrice"] > 0)
                               Text(
-                                "\$${product.document.data()!["comparedPrice"].toStringAsFixed(0)}",
+                                "\$${productData?["comparedPrice"]?.toStringAsFixed(0) ?? '0'}",
                                 style: const TextStyle(
                                   decoration: TextDecoration.lineThrough,
                                   fontWeight: FontWeight.bold,
