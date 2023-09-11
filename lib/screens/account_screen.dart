@@ -12,7 +12,7 @@ import 'google_map_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   static const String id = "account-screen";
-  const AccountScreen({Key? key});
+  const AccountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class AccountScreen extends StatelessWidget {
                             const SizedBox(
                               width: 10,
                             ),
-                            Container(
+                            SizedBox(
                               height: 70,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
