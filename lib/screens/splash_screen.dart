@@ -1,15 +1,14 @@
 import 'dart:async';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:kiranjaapp_client/screens/welcome_screen.dart';
-
 import 'main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-  static const id = "splash-screen";
+  static const String id = "splash-screen";
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -21,13 +20,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      bool? boarding = store.read("onBoarding");
-      boarding == null
-          ? Navigator.pushReplacementNamed(context, WelcomeScreen.id)
-          : boarding == true
-              ? Navigator.pushReplacementNamed(context, MainScreen.id)
-              : Navigator.pushReplacementNamed(context, WelcomeScreen.id);
-      Navigator.pushNamed(context, WelcomeScreen.id);
+      FirebaseAuth.instance.authStateChanges().listen((User? user) {
+        if (user == null) {
+          Navigator.pushReplacementNamed(context, WelcomeScreen.id);
+        } else {
+          Navigator.pushReplacementNamed(context, MainScreen.id);
+        }
+      });
     });
     super.initState();
   }
