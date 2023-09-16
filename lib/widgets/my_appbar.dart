@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+// import 'package:provider/provider.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
-import '../providers/location_provider.dart';
-import '../screens/google_map_screen.dart';
+// import '../providers/location_provider.dart';
+// import '../screens/google_map_screen.dart';
 
 class MyAppBar extends StatefulWidget {
   const MyAppBar({super.key});
@@ -15,8 +15,8 @@ class MyAppBar extends StatefulWidget {
 }
 
 class _MyAppBarState extends State<MyAppBar> {
-  String _location = "";
-  String _address = "";
+  // String _location = "";
+  // String _address = "";
 
   @override
   void initState() {
@@ -25,25 +25,25 @@ class _MyAppBarState extends State<MyAppBar> {
   }
 
   getPrefs() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? location = prefs.getString("location");
-    String? address = prefs.getString("address");
-    setState(() {
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String? location = prefs.getString("location");
+    // String? address = prefs.getString("address");
+    /*setState(() {
       _location = location!;
       _address = address!;
-    });
+    });*/
   }
 
   @override
   Widget build(BuildContext context) {
-    final locationData = Provider.of<LocationProvider>(context);
+    // final locationData = Provider.of<LocationProvider>(context);
     return SliverAppBar(
       // making app bar scrollable
       automaticallyImplyLeading: true,
       elevation: 0.0,
       snap: true,
       floating: true,
-      title: TextButton(
+      /*title: TextButton(
         onPressed: () {
           locationData.getCurrentPosition();
           if (locationData.permissionAllowed == true) {
@@ -89,7 +89,7 @@ class _MyAppBarState extends State<MyAppBar> {
             ))
           ],
         ),
-      ),
+      ),*/
       actions: [
         IconButton(
             onPressed: () {},

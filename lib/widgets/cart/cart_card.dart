@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/widgets/cart/counter.dart';
 
@@ -94,7 +94,7 @@ class CartCard extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 
 

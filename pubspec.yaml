@@ -27,9 +27,9 @@ dependencies:
   getwidget: ^3.1.1
   cached_network_image: ^3.2.3
   youtube_player_flutter: ^8.1.2
-  firebase_core: ^2.14.0
+  firebase_core: ^2.15.1
   firebase_auth: ^4.9.0
-  cloud_firestore: ^4.8.1
+  cloud_firestore: ^4.9.1
   firebase_service: ^0.0.1+1
   expandable_text: ^2.3.0
   intl: ^0.18.0

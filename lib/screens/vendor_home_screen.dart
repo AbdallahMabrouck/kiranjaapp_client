@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import '../widgets/category/vendor_categories.dart';
 import '../widgets/products/best_selling_products.dart';
 import '../widgets/products/featured_products.dart';
@@ -34,3 +34,4 @@ class VendorHomeScreen extends StatelessWidget {
     );
   }
 }
+*/

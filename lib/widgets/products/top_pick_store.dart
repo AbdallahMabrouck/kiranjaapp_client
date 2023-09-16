@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:kiranjaapp_client/services/store_services.dart';
@@ -132,3 +132,4 @@ class _TopPickStoreState extends State<TopPickStore> {
     );
   }
 }
+*/

@@ -1,4 +1,4 @@
-import 'dart:js_interop';
+/*import 'dart:js_interop';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +73,7 @@ class CartProvider with ChangeNotifier {
 }
 
 
-
+*/
 
 
 

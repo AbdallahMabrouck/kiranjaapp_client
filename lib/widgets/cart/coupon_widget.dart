@@ -1,4 +1,4 @@
-import 'dart:js_interop';
+/*import 'dart:js_interop';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
@@ -193,3 +193,4 @@ class _CouponWidgetState extends State<CouponWidget> {
     );
   }
 }
+*/

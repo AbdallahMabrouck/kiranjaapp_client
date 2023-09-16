@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kiranjaapp_client/screens/account_screen.dart';
-import 'package:kiranjaapp_client/screens/cart_screen.dart';
+// import 'package:kiranjaapp_client/screens/account_screen.dart';
+// import 'package:kiranjaapp_client/screens/cart_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import '../widgets/cart/cart_notification.dart';
-import 'categories_screen.dart';
+// import '../widgets/cart/cart_notification.dart';
+// import 'categories_screen.dart';
 import 'home_screen.dart';
-import 'order_screen.dart';
+// import 'order_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key, required int index});
@@ -23,10 +23,10 @@ class MainScreen extends StatelessWidget {
         const HomeScreen(
           index: 0,
         ),
-        const CategoriesScreen(),
-        const OrdersScreen(),
-        const CartScreen(),
-        const AccountScreen(),
+        // const CategoriesScreen(),
+        // const OrdersScreen(),
+        // const CartScreen(),
+        // const AccountScreen(),
       ];
     }
 
@@ -68,7 +68,7 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: const Padding(
         padding: EdgeInsets.only(bottom: 56),
-        child: CartNotification(),
+        // child: CartNotification(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: PersistentTabView(

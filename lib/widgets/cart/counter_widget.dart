@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/services/cart_services.dart';
 import 'package:kiranjaapp_client/widgets/products/add_to_cart_widget.dart';
@@ -143,3 +143,4 @@ class _CounterWidgetState extends State<CounterWidget> {
         : AddToCartWidget(document: widget.document);
   }
 }
+*/

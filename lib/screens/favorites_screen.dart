@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
@@ -12,3 +12,4 @@ class FavoriteScreen extends StatelessWidget {
     );
   }
 }
+*/

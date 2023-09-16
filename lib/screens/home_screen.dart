@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/image_slider.dart';
+// import '../widgets/image_slider.dart';
 import '../widgets/my_appbar.dart';
-import '../widgets/products/top_pick_store.dart';
+// import '../widgets/products/top_pick_store.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "home-screen";
@@ -26,11 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
           body: ListView(
             padding: const EdgeInsets.only(top: 0.0),
             children: [
-              const ImageSlider(),
+              // const ImageSlider(),
               Container(
-                  color: Colors.white,
-                  height: 200,
-                  child: const TopPickStore()),
+                color: Colors.white,
+                height: 200,
+                // child: const TopPickStore()
+              ),
             ],
           ),
         ),
@@ -38,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
 
 
 

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/providers/store_provider.dart';
 import 'package:kiranjaapp_client/services/product_services.dart';
@@ -86,3 +86,4 @@ class FeaturedProducts extends StatelessWidget {
     );
   }
 }
+*/

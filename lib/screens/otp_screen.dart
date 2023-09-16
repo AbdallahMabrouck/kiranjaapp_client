@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/screens/user_information_screen.dart';
 import 'package:pinput/pinput.dart';
 import '../widgets/custom_button.dart';
+import 'home_screen.dart';
 
 class OtpScreen extends StatefulWidget {
   // final String verificationId;
@@ -88,7 +89,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   child: CustomButton(
                     text: "Verify",
                     onPressed: () {
-                      Navigator.pushNamed(context, UserInfromationScreen.id);
+                      Navigator.pushNamed(context, HomeScreen.id);
                     },
                   ),
                 ),

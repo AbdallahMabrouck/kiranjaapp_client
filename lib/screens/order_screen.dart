@@ -1,4 +1,4 @@
-import 'package:chips_choice/chips_choice.dart';
+/*import 'package:chips_choice/chips_choice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -349,3 +349,4 @@ class _OrdersScreenState extends State<OrdersScreen> {
     );
   }
 }
+*/

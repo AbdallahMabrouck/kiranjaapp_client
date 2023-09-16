@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+/*import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import '../models/product_model.dart';
@@ -89,3 +89,4 @@ class HomeProductList extends StatelessWidget {
     );
   }
 }
+*/

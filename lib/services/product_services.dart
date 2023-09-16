@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductServices {
   CollectionReference category =
@@ -6,3 +6,4 @@ class ProductServices {
   CollectionReference products =
       FirebaseFirestore.instance.collection("products");
 }
+*/
