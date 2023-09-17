@@ -1,4 +1,4 @@
-/*import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
+import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/widgets/category/sub_category_widget.dart';
 
@@ -34,4 +34,3 @@ class _MainCategoryWidgetState extends State<MainCategoryWidget> {
     );
   }
 }
-*/

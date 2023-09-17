@@ -1,4 +1,4 @@
-/*import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../models/sub_category_model.dart';
@@ -74,4 +74,3 @@ class SubCategoryWidget extends StatelessWidget {
     );
   }
 }
-*/

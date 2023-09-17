@@ -91,6 +91,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           child: AbsorbPointer(
                             absorbing: _validPhoneNumber ? false : true,
                             child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        _validPhoneNumber
+                                            ? Theme.of(context).primaryColor
+                                            : Colors.grey),
+                              ),
                               // color: _validPhoneNumber ? Theme.of(context).primaryColor : Colors.grey,
                               onPressed: () {
                                 myState(() {

@@ -83,7 +83,13 @@ class _LogInScreenState extends State<LogInScreen> {
                       child: AbsorbPointer(
                         absorbing:
                             !_validPhoneNumber || _isVerifying || _isVerified,
-                        child: TextButton(
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                _validPhoneNumber
+                                    ? Theme.of(context).primaryColor
+                                    : Colors.grey),
+                          ),
                           onPressed: () async {
                             if (_validPhoneNumber) {
                               setState(() {

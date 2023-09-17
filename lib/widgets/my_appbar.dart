@@ -90,17 +90,17 @@ class _MyAppBarState extends State<MyAppBar> {
           ],
         ),
       ),*/
-      actions: [
+      /* actions: [
         IconButton(
             onPressed: () {},
             icon: const Icon(
-              CupertinoIcons.square_favorites_alt_fill,
+              Icons.favorite_outlined,
               color: Colors.white,
             )),
-      ],
+      ],*/
 
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(56),
+          preferredSize: const Size.fromHeight(36),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
