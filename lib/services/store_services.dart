@@ -1,4 +1,4 @@
-/*import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class StoreServices {
   CollectionReference vendorbanner =
@@ -18,4 +18,4 @@ class StoreServices {
     DocumentSnapshot snapshot = await vendors.doc(sellerUid).get();
     return snapshot;
   }
-}*/
+}

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-// import '../widgets/image_slider.dart';
+import 'package:kiranjaapp_client/widgets/category/category_widget.dart';
 import '../widgets/image_slider.dart';
 import '../widgets/my_appbar.dart';
-// import '../widgets/products/top_pick_store.dart';
+import '../widgets/products/top_pick_store.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "home-screen";
@@ -15,8 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // final auth = Provider.of<AuthProvider>(context);
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade200,
@@ -27,11 +25,23 @@ class _HomeScreenState extends State<HomeScreen> {
           body: ListView(
             padding: const EdgeInsets.only(top: 0.0),
             children: [
+              // This widget appears at the top.
               const ImageSlider(),
+
+              // This container contains TopPickStore() and CategoryWidget(),
+              // and they will appear one after the other vertically.
               Container(
                 color: Colors.white,
                 height: 200,
-                // child: const TopPickStore()
+                child: const Column(
+                  children: [
+                    // This widget appears below ImageSlider().
+                    TopPickStore(),
+
+                    // This widget appears below TopPickStore().
+                    CategoryWidget(),
+                  ],
+                ),
               ),
             ],
           ),
@@ -40,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
 
 
 

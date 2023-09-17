@@ -100,7 +100,7 @@ class _MyAppBarState extends State<MyAppBar> {
       ],*/
 
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(36),
+          preferredSize: const Size.fromHeight(20),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(

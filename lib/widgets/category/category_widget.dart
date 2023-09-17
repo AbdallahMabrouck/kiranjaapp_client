@@ -1,4 +1,4 @@
-/*import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
+import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../models/category_model.dart';
 import '../../screens/main_screen.dart';
@@ -120,4 +120,3 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     );
   }
 }
-*/

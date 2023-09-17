@@ -41,25 +41,25 @@ class MainScreen extends StatelessWidget {
             icon: const Icon(Icons.dashboard_outlined),
             title: "Categories",
             activeColorPrimary: Theme.of(context).primaryColor,
-            inactiveColorPrimary: Colors.grey,
+            inactiveColorPrimary: Colors.black87,
             inactiveColorSecondary: Colors.purple),
         PersistentBottomNavBarItem(
             icon: const Icon(CupertinoIcons.shopping_cart),
             title: "Cart",
             activeColorPrimary: Theme.of(context).primaryColor,
-            inactiveColorPrimary: Colors.grey,
+            inactiveColorPrimary: Colors.black87,
             inactiveColorSecondary: Colors.purple),
         PersistentBottomNavBarItem(
-            icon: const Icon(CupertinoIcons.bag_fill),
+            icon: const Icon(CupertinoIcons.bag),
             title: "My Orders",
             activeColorPrimary: Theme.of(context).primaryColor,
-            inactiveColorPrimary: Colors.grey,
+            inactiveColorPrimary: Colors.black87,
             inactiveColorSecondary: Colors.purple),
         PersistentBottomNavBarItem(
-            icon: const Icon(CupertinoIcons.profile_circled),
+            icon: const Icon(Icons.person_2_outlined),
             title: "Account",
             activeColorPrimary: Theme.of(context).primaryColor,
-            inactiveColorPrimary: Colors.grey,
+            inactiveColorPrimary: Colors.black87,
             inactiveColorSecondary: Colors.purple),
       ];
     }
