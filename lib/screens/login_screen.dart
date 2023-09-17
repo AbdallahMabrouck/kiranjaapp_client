@@ -1,4 +1,4 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/screens/main_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -66,7 +66,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   autofocus: true,
                   keyboardType: TextInputType.phone,
-                  maxLength: 10,
+                  maxLength: 9,
                   controller: _phoneNumberController,
                   onChanged: (value) {
                     setState(() {
@@ -88,7 +88,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             if (_validPhoneNumber) {
                               setState(() {
                                 auth.loading = true;
-                                auth.screen = "MainScreen";
+                                auth.screen = "MapScreen";
                                 _isVerifying = true;
                                 // start verification process
                               });
@@ -143,4 +143,3 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 }
-*/

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kiranjaapp_client/screens/onboaard_screen.dart';
-import 'package:kiranjaapp_client/screens/register_screen.dart';
+// import 'package:kiranjaapp_client/screens/register_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
-import '../providers/location_provider.dart';
+// import '../providers/location_provider.dart';
+import 'google_map_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = "Welcome";
@@ -89,7 +90,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Expanded(
                           child: AbsorbPointer(
                             absorbing: _validPhoneNumber ? false : true,
-                            child: TextButton(
+                            child: ElevatedButton(
                               // color: _validPhoneNumber ? Theme.of(context).primaryColor : Colors.grey,
                               onPressed: () {
                                 myState(() {
@@ -135,7 +136,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       });
     }
 
-    final locationData = Provider.of<LocationProvider>(context, listen: false);
+    // final locationData = Provider.of<LocationProvider>(context, listen: false);
 
     return SafeArea(
       child: Scaffold(
@@ -157,7 +158,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   children: [
                     const Expanded(child: OnBoardScreen()),
                     Text(
-                      "Ready to start Selling?",
+                      "Ready to start Selling ?",
                       style: TextStyle(color: Colors.grey.shade900),
                     ),
                     const SizedBox(
@@ -171,22 +172,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const RegisterScreen()));
+                                builder: (context) => const MapScreen()));
                       },
-                      child: locationData.loading
+                      child: /*locationData.loading
                           ? const CircularProgressIndicator(
                               valueColor:
                                   AlwaysStoppedAnimation<Color>(Colors.white),
                             )
-                          : const Text(
-                              "REGISTER NOW",
-                              style: TextStyle(color: Colors.white),
-                            ),
+                          : const*/
+                          const Text(
+                        "SET YOUR LOCATION ADDRESS",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color(0xFF3F51B5))),
+                    TextButton(
+                      // style: ButtonStyle(
+                      // backgroundColor: MaterialStateProperty.all(
+                      // const Color(0xFF3F51B5))),
                       onPressed: () {
                         setState(() {
                           auth.screen = "login";
@@ -194,15 +196,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         showBottomSheet(context);
                       },
                       child: RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                             text: "Already a Customer ?  ",
-                            style: TextStyle(color: Colors.white),
-                            children: [
+                            style: TextStyle(color: Colors.grey.shade900),
+                            children: const [
                               TextSpan(
-                                  text: "Login",
+                                  text: "LOGIN",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white))
+                                      color: Colors.indigo))
                             ]),
                       ),
                     ),

@@ -21,7 +21,7 @@ List<Widget> _pages = [
     children: [
       Expanded(child: Image.asset("assets/images/image22.png")),
       const Text(
-        "Start Selling Online Effortlessly",
+        "Start Your Online Business Now",
         style: kPageViewTextStyle,
         textAlign: TextAlign.center,
       )
@@ -30,7 +30,7 @@ List<Widget> _pages = [
   Column(
     children: [
       Expanded(child: Image.asset("assets/images/image1.png")),
-      const Text("Get Customers and Earn Profit",
+      const Text("Get Customers and Earn Profits",
           style: kPageViewTextStyle, textAlign: TextAlign.center)
     ],
   ),

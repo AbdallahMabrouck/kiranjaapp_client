@@ -1,4 +1,4 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -19,7 +19,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  LatLng currentLocation = const LatLng(1, 1);
+  LatLng currentLocation = const LatLng(-6.776012, 39.178326);
   late GoogleMapController _mapController;
   bool _locating = false;
   bool _loggedIn = false;
@@ -27,6 +27,7 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   void initState() {
+    // check if user is logged on or not while opening the map
     getCurrentUser();
     super.initState();
   }
@@ -42,7 +43,7 @@ class _MapScreenState extends State<MapScreen> {
       });
     }
 
-    // Request location permission
+    //  Request location permission
     if (await Permission.location.isDenied) {
       await Permission.location.request();
     }
@@ -59,7 +60,7 @@ class _MapScreenState extends State<MapScreen> {
     final locationData = Provider.of<LocationProvider>(context);
     final _auth = Provider.of<AuthProvider>(context);
 
-    _checkLocationPermission();
+    // _checkLocationPermission();
 
     return Scaffold(
       body: SafeArea(
@@ -95,7 +96,7 @@ class _MapScreenState extends State<MapScreen> {
                 height: 50,
                 margin: const EdgeInsets.only(bottom: 40),
                 child: Image.asset(
-                  "image/marker.png",
+                  "assets/images/maker.png",
                   color: Colors.black,
                 ),
               ),
@@ -230,4 +231,3 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 }
-*/

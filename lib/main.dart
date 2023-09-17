@@ -6,9 +6,9 @@ import 'package:kiranjaapp_client/firebase_options.dart';
 import 'package:kiranjaapp_client/providers/auth_provider.dart';
 // import 'package:kiranjaapp_client/providers/cart_provider.dart';
 import 'package:kiranjaapp_client/providers/location_provider.dart';
+import 'package:kiranjaapp_client/screens/google_map_screen.dart';
+import 'package:kiranjaapp_client/screens/login_screen.dart';
 import 'package:kiranjaapp_client/screens/main_screen.dart';
-import 'package:kiranjaapp_client/screens/otp_screen.dart';
-import 'package:kiranjaapp_client/screens/register_screen.dart';
 // import 'package:kiranjaapp_client/providers/store_provider.dart';
 import 'package:kiranjaapp_client/screens/splash_screen.dart';
 import 'package:kiranjaapp_client/screens/welcome_screen.dart';
@@ -55,14 +55,13 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
         WelcomeScreen.id: (context) => const WelcomeScreen(),
-        RegisterScreen.id: (context) => const RegisterScreen(),
-        OtpScreen.id: (context) => const OtpScreen(),
-        // UserInfromationScreen.id: (context) => const UserInfromationScreen(),
+        MapScreen.id: (context) => const MapScreen(),
+        LogInScreen.id: (context) => const LogInScreen(),
         MainScreen.id: (context) => const MainScreen(index: 0),
-        // MapScreen.id: (context) => const MapScreen(),
-        // LogInScreen.id: (context) => const LogInScreen(),
+        // RegisterScreen.id: (context) => const RegisterScreen(),
+        // OtpScreen.id: (context) => const OtpScreen(),
+        // UserInfromationScreen.id: (context) => const UserInfromationScreen(),
         // LandingScreen.id: (context) => const LandingScreen(),
-        // NewMainScreen.id: (context) => const NewMainScreen(),
         // MainScreen.id: (context) => const MainScreen(index: 0),
         // VendorHomeScreen.id: (context) => const VendorHomeScreen(),
         // ProductListScreen.id: (context) => const ProductListScreen(),

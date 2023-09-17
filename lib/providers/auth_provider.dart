@@ -25,6 +25,7 @@ class AuthProvider with ChangeNotifier {
       {required BuildContext context, required String? number}) async {
     loading = true;
     notifyListeners();
+
     verificationCompleted(PhoneAuthCredential credential) async {
       loading = false;
       notifyListeners();
