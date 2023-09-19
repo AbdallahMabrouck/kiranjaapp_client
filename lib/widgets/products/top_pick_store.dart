@@ -61,7 +61,7 @@ class _TopPickStoreState extends State<TopPickStore> {
                   children: [
                     SizedBox(
                       height: 30,
-                      child: Image.asset("images/like.gif"),
+                      child: Image.asset("assets/images/like.gif"),
                     ),
                     const Text(
                       "Top Picked Stores",
